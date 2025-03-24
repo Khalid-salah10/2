@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>  // För std::shuffle
+#include <chrono>
+
+int main() {
+    std::vector<int> kundnummer;
+    
+    // Skapa kundnummer från 1 till 1000
+    for (int i = 1; i <= 1000; ++i) {
+        kundnummer.push_back(i);
+    }
+
+    // Blanda med std::shuffle
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(kundnummer.begin(), kundnummer.end(), g);
+
+    // Skriv ut några kundnummer för att visa att de är blandade
+    std::cout << "Slumpmässiga kundnummer:" << std::endl;
+    for (int i = 0; i < 10; ++i) {
+        std::cout << kundnummer[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
