@@ -1,0 +1,14 @@
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+
+std::string paddatKundnummer(int nummer) {
+    std::ostringstream ss;
+    ss << std::setw(10) << std::setfill('0') << nummer;
+    return ss.str();
+}
+
+int main() {
+    std::cout << paddatKundnummer(1) << std::endl;  // Output: "0000000001"
+    std::cout << paddatKundnummer(123) << std::endl;  // Output: "0000000123"
+}
