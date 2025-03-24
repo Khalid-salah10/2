@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <chrono>
+
+int main() {
+    std::vector<int> kundnummer = {5, 3, 8, 1, 9, 2, 4, 7, 6, 10};
+    
+    auto start = std::chrono::high_resolution_clock::now();
+    std::sort(kundnummer.begin(), kundnummer.end());  // Sortering med STL
+    auto end = std::chrono::high_resolution_clock::now();
+    
+    std::cout << "Sorterade kundnummer:" << std::endl;
+    for (int nummer : kundnummer) {
+        std::cout << nummer << " ";
+    }
+    std::cout << std::endl;
+
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    std::cout << "Tid för sortering (nanosekunder): " << duration << " ns" << std::endl;
+
+    return 0;
+}
